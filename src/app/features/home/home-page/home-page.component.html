@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Cocktail Finder</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar
+      placeholder="Search"
+      slot="start"
+      [formControl]="searchControl"
+    />
+    <ion-buttons slot="primary">
+      <ion-button size="large">
+        <ion-icon name="search-outline"></ion-icon>
+      </ion-button>
+      <ion-button size="large">
+        <ion-icon name="dice-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding"></ion-content>

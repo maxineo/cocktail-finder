@@ -7,9 +7,6 @@ interface ImportMeta {
 
 type ImportMetaEnv = Readonly<{
 
-	/**
-	 * Built-in environment variable.
-	 * @see Docs https://github.com/chihab/ngx-env#ng_app_env.
-	 */
+	/** Current environment. */
 	readonly NG_APP_ENV: string;
 }>;

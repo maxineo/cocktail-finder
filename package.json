@@ -4,13 +4,12 @@
   "type": "module",
   "scripts": {
     "start": "ng build --watch --configuration development",
-    "build:dev": "ng build",
+    "build:dev": "ng build --configuration development",
     "test": "ng test",
     "lint": "ng lint",
-    "android-start:dev": "NG_APP_ENV=development ionic cap run android --livereload --external --configuration development",
-    "android-start:dev:win": "set NG_APP_ENV=development &&  ionic cap run android --livereload --external --configuration development",
-    "android-build:dev": "NG_APP_ENV=development ionic cap build android --configuration development --no-open",
-    "android-build:dev:win": "set NG_APP_ENV=development && ionic cap build android --configuration development --no-open"
+    "android-start:dev": "ionic cap run android --livereload --external --configuration development",
+    "android-start:prod": "ionic cap run android --livereload --external --configuration production",
+    "android-build:dev": "ionic cap build android --configuration development --no-open"
   },
   "private": true,
   "dependencies": {
@@ -48,6 +47,7 @@
     "@eslint/compat": "^1.2.8",
     "@ionic/angular-toolkit": "^12.0.0",
     "@ionic/cli": "^7.2.1",
+    "@ngx-env/builder": "^19.0.4",
     "@stylistic/eslint-plugin": "^4.2.0",
     "@types/jasmine": "~5.1.0",
     "@typescript-eslint/eslint-plugin": "^8.18.0",

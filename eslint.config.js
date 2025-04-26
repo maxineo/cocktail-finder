@@ -2,7 +2,6 @@
 import { resolve } from 'node:path';
 
 import { fixupPluginRules, includeIgnoreFile } from '@eslint/compat';
-
 import { config as tsEslintConfig } from 'typescript-eslint';
 import { configs as angularEslintConfigs } from 'angular-eslint';
 import rxjs from 'eslint-plugin-rxjs';
