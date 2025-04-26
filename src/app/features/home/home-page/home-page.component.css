@@ -1,3 +1,13 @@
 :host {
-  display: block;
+  display: flex;
+}
+
+.spinner {
+  left: 50%;
+  right: 50%;
+  top: 5%;
+}
+
+form {
+  display: flex;
 }

@@ -1,0 +1,11 @@
+:host {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.image {
+  height: 100px;
+  max-height: 100%;
+  border-radius: 20px;
+}

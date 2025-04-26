@@ -6,10 +6,11 @@
     <ion-searchbar
       placeholder="Search"
       slot="start"
+      (keyup.enter)="handleEnterKeyUp()"
       [formControl]="searchControl"
     />
     <ion-buttons slot="primary">
-      <ion-button size="large">
+      <ion-button size="large" (click)="onSearchButtonClick()">
         <ion-icon name="search-outline"></ion-icon>
       </ion-button>
       <ion-button size="large">
@@ -19,4 +20,10 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding"></ion-content>
+<ion-content class="ion-no-padding">
+  @if (isLoadingCocktails()) {
+    <ion-spinner class="spinner" />
+  } @else {
+    <cf-cocktails-list [cocktails]="cocktails()" class="list" />
+  }
+</ion-content>

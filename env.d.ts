@@ -9,4 +9,7 @@ type ImportMetaEnv = Readonly<{
 
 	/** Current environment. */
 	readonly NG_APP_ENV: string;
+
+	/** Api URL. */
+	readonly NG_APP_API_URL: string;
 }>;
