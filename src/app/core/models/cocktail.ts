@@ -17,7 +17,14 @@ export type Cocktail = Readonly<{
 	mediumImageUrl: string;
 
 	/** Ingredients list. */
-	ingredients: readonly string[];
+	ingredients: readonly Readonly<{
+
+		/** Name. */
+		name: string;
+
+		/** Measure. */
+		measure: string | null;
+	}>[];
 
 	/** Cocktail making instructions. */
 	instruction: string;

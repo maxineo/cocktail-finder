@@ -13,4 +13,12 @@ export class CocktailDetailsComponent {
 
 	/** Cocktail. */
 	public readonly cocktail = input.required<Cocktail>();
+
+	/**
+	 * Get Cocktail ingredient text description.
+	 * @param ingredient Ingredient.
+	 */
+	protected getIngredientText(ingredient: Cocktail['ingredients'][number]): string {
+		return `${ingredient.name} ${ingredient.measure ? `(${ingredient.measure})` : ''}`;
+	}
 }

@@ -19,7 +19,7 @@
   <ul class="ingredients-list">
     @for (ingredient of cocktailData.ingredients; track $index) {
       <li>
-        <p class="body-1">{{ ingredient }}</p>
+        <p class="body-1">{{ getIngredientText(ingredient) }}</p>
       </li>
     }
   </ul>

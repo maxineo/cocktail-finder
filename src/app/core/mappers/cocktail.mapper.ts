@@ -5,6 +5,10 @@ import { Cocktail } from '../models/cocktail';
 
 import { MapperFromDto } from './mappers';
 
+const ingredientKeyPrefix = 'strIngredient';
+const measureKeyPrefix = 'strMeasure';
+const ingredientsMaxIndex = 15;
+
 /** Cocktail mapper. */
 @Injectable({ providedIn: 'root' })
 export class CocktailMapper implements MapperFromDto<CocktailDto, Cocktail> {
@@ -13,9 +17,17 @@ export class CocktailMapper implements MapperFromDto<CocktailDto, Cocktail> {
 	public fromDto(dto: CocktailDto): Cocktail {
 
 		const ingredients: Cocktail['ingredients'][number][] = [];
-		for (const [key, value] of Object.entries(dto)) {
-			if (key.startsWith('strIngredient') && value !== null && value !== '') {
-				ingredients.push(value);
+		for (let i = 1; i <= ingredientsMaxIndex; i++) {
+			// @ts-expect-error
+			const ingredientName = dto[`${ingredientKeyPrefix}${i}`] as (string | undefined);
+
+			// @ts-expect-error
+			const measure = dto[`${measureKeyPrefix}${i}`] as (string | undefined);
+			if (ingredientName != null && ingredientName !== '') {
+				ingredients.push({
+					name: ingredientName,
+					measure: measure ?? null,
+				});
 			}
 		}
 		return {
