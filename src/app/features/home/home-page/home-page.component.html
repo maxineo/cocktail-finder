@@ -32,7 +32,9 @@
   @if (isLoadingCocktailsList()) {
     <ion-spinner class="spinner" />
   } @else if (isSearchPerformed() && cocktails().length === 0) {
-    <p class="body-1">No results</p>
+    <div class="no-results">
+      <p class="body-1">No results</p>
+    </div>
   } @else {
     <cf-cocktails-list [cocktails]="cocktails()" class="list" />
   }

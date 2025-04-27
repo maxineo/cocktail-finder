@@ -8,6 +8,8 @@
   top: 5%;
 }
 
-form {
+.no-results {
+  padding-top: 20px;
   display: flex;
+  justify-content: center;
 }

@@ -8,7 +8,6 @@
     "test": "ng test",
     "lint": "ng lint",
     "android-start:dev": "ionic cap run android --livereload --external --configuration development",
-    "android-start:prod": "ionic cap run android --livereload --external --configuration production",
     "android-build:dev": "ionic cap build android --configuration development --no-open"
   },
   "private": true,
