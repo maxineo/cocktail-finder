@@ -1,5 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 
+import { Cocktail } from '../models/cocktail';
+
 import { AppConfig } from './appConfig.service';
 
 /**
@@ -13,6 +15,7 @@ export class AppUrlsConfig {
 
 	/** Cocktails routes. */
 	public readonly cocktails = {
+		entity: (id: Cocktail['id']) => this.toApi(`lookup.php?i=${id}`),
 		listByName: (name: string) => this.toApi(`search.php?s=${name}`),
 	};
 

@@ -16,7 +16,7 @@ import {
 } from 'ionicons/icons';
 import { addIcons } from 'ionicons';
 import { NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { CocktailApiService } from 'src/app/core/services/cocktail-api.service';
+import { CocktailsService } from 'src/app/core/services/cocktail-api.service';
 import { distinctUntilChanged, map, Subject, switchMap, withLatestFrom } from 'rxjs';
 import { toSignal } from '@angular/core/rxjs-interop';
 
@@ -52,7 +52,7 @@ export class HomePageComponent {
 
 	private readonly fb = inject(NonNullableFormBuilder);
 
-	private readonly cocktailsApiService = inject(CocktailApiService);
+	private readonly cocktailsService = inject(CocktailsService);
 
 	private readonly reloadCocktails$ = new Subject<void>();
 
@@ -64,7 +64,7 @@ export class HomePageComponent {
 		withLatestFrom(this.searchControl.valueChanges),
 		map(([_, value]) => value),
 		distinctUntilChanged(),
-		switchMap(value => this.cocktailsApiService.getByName(value).pipe(
+		switchMap(value => this.cocktailsService.getByName(value).pipe(
 			toggleExecutionState(this.isLoadingCocktails),
 		)),
 	), { initialValue: [] });

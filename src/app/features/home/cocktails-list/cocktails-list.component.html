@@ -1,7 +1,9 @@
 <ion-list lines="full">
   @for (cocktail of cocktails(); track $index) {
-    <ion-item>
-      <cf-cocktail-card [cocktail]="cocktail" class="card" />
-    </ion-item>
+    <a [routerLink]="getCocktailDetailsUrl(cocktail)">
+      <ion-item>
+        <cf-cocktail-card [cocktail]="cocktail" class="card" />
+      </ion-item>
+    </a>
   }
 </ion-list>

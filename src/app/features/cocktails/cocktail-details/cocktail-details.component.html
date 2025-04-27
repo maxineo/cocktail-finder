@@ -1,0 +1,33 @@
+@let cocktailData = cocktail();
+
+<img
+  class="image"
+  [src]="cocktailData.mediumImageUrl"
+  [alt]="cocktailData.name"
+  height="300px"
+/>
+
+<section class="header">
+  <h1 class="heading-1">{{ cocktailData.name }}</h1>
+  <p class="heading-2 normal">{{ cocktailData.glassType }}</p>
+</section>
+
+<hr class="divider" />
+
+<section class="section">
+  <h2 class="heading-1">Ingredients</h2>
+  <ul class="ingredients-list">
+    @for (ingredient of cocktailData.ingredients; track $index) {
+      <li>
+        <p class="body-1">{{ ingredient }}</p>
+      </li>
+    }
+  </ul>
+</section>
+
+<hr class="divider" />
+
+<section class="section">
+  <h2 class="heading-1">Instructions</h2>
+  <p class="body-1">{{ cocktailData.instruction }}</p>
+</section>

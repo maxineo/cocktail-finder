@@ -32,8 +32,7 @@
               }
             ],
             "styles": [
-              "src/global.css",
-              "src/theme/variables.css"
+              "src/theme/index.css"
             ],
             "scripts": [],
             "browser": "src/main.ts"
@@ -102,7 +101,7 @@
                 "output": "assets"
               }
             ],
-            "styles": ["src/global.css", "src/theme/variables.css"],
+            "styles": ["src/theme/index.css"],
             "scripts": []
           },
           "configurations": {

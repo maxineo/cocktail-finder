@@ -10,8 +10,11 @@ export type Cocktail = Readonly<{
 	/** Type of glass. */
 	glassType: string;
 
-	/** Image URL. */
-	imageUrl: string;
+	/** Small image URL. */
+	smallImageUrl: string;
+
+	/** Medium image URL. */
+	mediumImageUrl: string;
 
 	/** Ingredients list. */
 	ingredients: readonly string[];

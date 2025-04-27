@@ -8,9 +8,9 @@ import { CocktailMapper } from '../mappers/cocktail.mapper';
 
 import { AppUrlsConfig } from './app-urls.config';
 
-/** Cocktails api service. */
+/** Cocktails service. */
 @Injectable({ providedIn: 'root' })
-export class CocktailApiService {
+export class CocktailsService {
 
 	private readonly http = inject(HttpClient);
 
@@ -27,6 +27,27 @@ export class CocktailApiService {
 			map(response => cocktailsResponseDtoSchema.parse(response)),
 			map(response => response.drinks),
 			map(drinks => Array.isArray(drinks) ? drinks.map(drink => this.cocktailMapper.fromDto(drink)) : []),
+		);
+	}
+
+	/**
+	 * Gets cocktail by ID.
+	 * @param id ID.
+	 */
+	public getById(id: Cocktail['id']): Observable<Cocktail> {
+		return this.http.get<unknown>(this.appUrlsConfig.cocktails.entity(id)).pipe(
+			map(response => cocktailsResponseDtoSchema.parse(response)),
+			map(response => response.drinks),
+			map(drinks => {
+				if (Array.isArray(drinks)) {
+					const cocktail = drinks.at(0);
+					if (cocktail != null) {
+						return cocktail;
+					}
+				}
+				throw new Error('Not found');
+			}),
+			map(cocktailDto => this.cocktailMapper.fromDto(cocktailDto)),
 		);
 	}
 }

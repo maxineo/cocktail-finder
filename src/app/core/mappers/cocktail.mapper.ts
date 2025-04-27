@@ -14,7 +14,7 @@ export class CocktailMapper implements MapperFromDto<CocktailDto, Cocktail> {
 
 		const ingredients: Cocktail['ingredients'][number][] = [];
 		for (const [key, value] of Object.entries(dto)) {
-			if (key.startsWith('strIngredient') && value !== null) {
+			if (key.startsWith('strIngredient') && value !== null && value !== '') {
 				ingredients.push(value);
 			}
 		}
@@ -22,7 +22,8 @@ export class CocktailMapper implements MapperFromDto<CocktailDto, Cocktail> {
 			id: parseInt(dto.idDrink, 10),
 			name: dto.strDrink,
 			glassType: dto.strGlass,
-			imageUrl: dto.strDrinkThumb,
+			smallImageUrl: `${dto.strDrinkThumb}/small`,
+			mediumImageUrl: `${dto.strDrinkThumb}/medium`,
 			instruction: dto.strInstructions,
 			ingredients,
 		};

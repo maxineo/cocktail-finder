@@ -62,4 +62,12 @@
 	--ion-color-dark-shade: #292929;
 	--ion-color-dark-tint: #444444;
 
+  	/** Typography */
+	--h1-font-size: 1.5rem;
+	--h2-font-size: 1.2rem;
+	--subtitle-1-font-size: 1.2rem;
+	--subtitle-2-font-size: 1rem;
+	--body-1-font-size: 1rem;
+	--body-2-font-size: 0.8rem;
+  --caption: 0.75rem;
 }

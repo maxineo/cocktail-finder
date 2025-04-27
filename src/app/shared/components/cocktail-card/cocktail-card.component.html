@@ -1,10 +1,12 @@
 @let data = cocktail();
 <img
-  [src]="data.imageUrl"
+  [src]="data.smallImageUrl"
   [alt]="data.name"
   class="image"
+  height="100px"
+  width="100px"
 >
-<div>
-  <h3>{{ data.name }}</h3>
-  <p>{{ data.glassType }}</p>
+<div class="description">
+  <h3 class="heading-1">{{ data.name }}</h3>
+  <p class="subtitle-1">{{ data.glassType }}</p>
 </div>
