@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "ng build --watch --configuration development",
+    "start:dev": "ng serve --configuration development",
     "build:dev": "ng build --configuration development",
     "test": "ng test",
     "lint": "ng lint",
