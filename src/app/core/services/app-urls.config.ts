@@ -15,7 +15,8 @@ export class AppUrlsConfig {
 
 	/** Cocktails routes. */
 	public readonly cocktails = {
-		entity: (id: Cocktail['id']) => this.toApi(`lookup.php?i=${id}`),
+		entityById: (id: Cocktail['id']) => this.toApi(`lookup.php?i=${id}`),
+		randomEntity: this.toApi('random.php'),
 		listByName: (name: string) => this.toApi(`search.php?s=${name}`),
 	};
 

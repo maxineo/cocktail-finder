@@ -35,7 +35,25 @@ export class CocktailsService {
 	 * @param id ID.
 	 */
 	public getById(id: Cocktail['id']): Observable<Cocktail> {
-		return this.http.get<unknown>(this.appUrlsConfig.cocktails.entity(id)).pipe(
+		return this.http.get<unknown>(this.appUrlsConfig.cocktails.entityById(id)).pipe(
+			map(response => cocktailsResponseDtoSchema.parse(response)),
+			map(response => response.drinks),
+			map(drinks => {
+				if (Array.isArray(drinks)) {
+					const cocktail = drinks.at(0);
+					if (cocktail != null) {
+						return cocktail;
+					}
+				}
+				throw new Error('Not found');
+			}),
+			map(cocktailDto => this.cocktailMapper.fromDto(cocktailDto)),
+		);
+	}
+
+	/** Gets random cocktail. */
+	public getRandom(): Observable<Cocktail> {
+		return this.http.get<unknown>(this.appUrlsConfig.cocktails.randomEntity).pipe(
 			map(response => cocktailsResponseDtoSchema.parse(response)),
 			map(response => response.drinks),
 			map(drinks => {

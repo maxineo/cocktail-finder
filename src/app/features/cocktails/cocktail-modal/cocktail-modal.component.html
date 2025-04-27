@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ cocktail().name }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button size="large" (click)="close()">
+        <ion-icon name="close-outline" />
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <cf-cocktail-details [cocktail]="cocktail()" />
+</ion-content>

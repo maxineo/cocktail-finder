@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { IonContent, IonToolbar, IonHeader, IonBackButton, IonButtons } from '@ionic/angular/standalone';
+import { IonContent, IonToolbar, IonHeader, IonBackButton, IonButtons, IonTitle } from '@ionic/angular/standalone';
 
 import { CocktailDetailsComponent } from '../cocktail-details/cocktail-details.component';
 
@@ -13,6 +13,7 @@ import { CocktailPageData } from './cocktail.resolver';
 	styleUrl: './cocktail-page.component.css',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 	imports: [
+		IonTitle,
 		IonButtons,
 		IonHeader,
 		IonToolbar,

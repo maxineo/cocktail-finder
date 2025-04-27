@@ -10,19 +10,29 @@
       [formControl]="searchControl"
     />
     <ion-buttons slot="primary">
-      <ion-button size="large" (click)="onSearchButtonClick()">
-        <ion-icon name="search-outline"></ion-icon>
+      <ion-button
+        size="large"
+        (click)="onSearchButtonClick()"
+        [disabled]="isLoadingCocktailsList()"
+      >
+        <ion-icon name="search" />
       </ion-button>
-      <ion-button size="large">
-        <ion-icon name="dice-outline"></ion-icon>
+      <ion-button
+        size="large"
+        (click)="onRandomCocktailButtonClick()"
+        [disabled]="isLoadingRandomCocktail()"
+      >
+        <ion-icon name="dice" />
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-no-padding">
-  @if (isLoadingCocktails()) {
+  @if (isLoadingCocktailsList()) {
     <ion-spinner class="spinner" />
+  } @else if (isSearchPerformed() && cocktails().length === 0) {
+    <p class="body-1">No results</p>
   } @else {
     <cf-cocktails-list [cocktails]="cocktails()" class="list" />
   }

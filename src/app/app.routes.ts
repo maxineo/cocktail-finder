@@ -7,4 +7,8 @@ import { cocktailsRoutes } from './features/cocktails/cocktails.routes';
 export const routes: Routes = [
 	...homeRoutes,
 	...cocktailsRoutes,
+	{
+		path: '**',
+		redirectTo: '',
+	},
 ];
